@@ -1,20 +1,31 @@
 import FluentMySQL
 import Vapor
+import Leaf
+import LeafErrorMiddleware
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
     /// Register providers first
     try services.register(FluentMySQLProvider())
+    try services.register(LeafProvider())
 
     /// Register routes to the router
     let router = EngineRouter.default()
     try routes(router)
     services.register(router, as: Router.self)
 
+    /// Use Leaf for rendering views
+    config.prefer(LeafRenderer.self, for: ViewRenderer.self)
+    config.prefer(LeafRenderer.self, for: TemplateRenderer.self)
+
+    services.register { worker in
+        return try LeafErrorMiddleware(environment: worker.environment)
+    }
+
     /// Register middleware
     var middlewares = MiddlewareConfig() // Create _empty_ middleware config
     /// middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
-    middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
+    middlewares.use(LeafErrorMiddleware.self)
     services.register(middlewares)
 
     // Configure a SQLite database
@@ -27,7 +38,6 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 
     /// Register the configured SQLite database to the database config.
     var databases = DatabasesConfig()
-    databases.enableLogging(on: .mysql)
     databases.add(database: mysql, as: .mysql)
     services.register(databases)
 

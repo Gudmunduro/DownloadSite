@@ -65,6 +65,24 @@
         }
       },
       {
+        "package": "Leaf",
+        "repositoryURL": "https://github.com/vapor/leaf.git",
+        "state": {
+          "branch": null,
+          "revision": "d35f54cbac723e673f9bd5078361eea74049c8d7",
+          "version": "3.0.2"
+        }
+      },
+      {
+        "package": "LeafErrorMiddleware",
+        "repositoryURL": "https://github.com/brokenhandsio/leaf-error-middleware.git",
+        "state": {
+          "branch": null,
+          "revision": "0edc781a649020638048b7579369d4385bc956f3",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "Multipart",
         "repositoryURL": "https://github.com/vapor/multipart.git",
         "state": {
