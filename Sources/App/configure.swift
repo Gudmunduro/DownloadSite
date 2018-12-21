@@ -29,9 +29,12 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     services.register(middlewares)
 
     // Configure a SQLite database
+    guard let sqluser = try Environment.get("sqluser"), let sqlpass = try Environment.get("sqlpass") else {
+        throw Abort(.internalServerError, reason: "Failed to get sql variables")
+    }
     let mysqlConfig = MySQLDatabaseConfig(hostname: "localhost",
-                                            username: "testing",
-                                            password: "ab123",
+                                            username: sqluser,
+                                            password: sqlpass,
                                             database: "downloadfiletest")
     let mysql = try MySQLDatabase(config: mysqlConfig)                                            
     
