@@ -12,11 +12,11 @@ final class DownlaodSiteController {
     {
         let fileTag = try req.parameters.next(String.self)
         let dbData = DownloadFile.query(on: req).filter(\.fileTag == fileTag).first()
-        dbData.catch { error throws -> () in
+        dbData.catch { (error) throws -> () in
             print(error)
             throw Abort(.badRequest, reason: "File does not exist")
         }
-        dbData.map { fileData -> Response in
+        return dbData.map { fileData -> Response in
             guard fileData != nil else {
                 print("Filedata is nil")
                 throw Abort(.badRequest, reason: "File does not exist")
