@@ -13,6 +13,7 @@ final class DownlaodSiteController {
         let fileTag = try req.parameters.next(String.self)
         return DownloadFile.query(on: req).filter(\.fileTag == fileTag).first().map { fileData in
             guard fileData != nil else {
+                print("Filedata is nil")
                 throw Abort(.badRequest, reason: "File does not exist")
             }
             guard let data = try? Data(contentsOf: fileStoragePath(filename: fileData!.fileTag)) else {

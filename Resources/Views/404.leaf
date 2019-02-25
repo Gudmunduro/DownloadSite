@@ -16,6 +16,11 @@
             padding: 0;
             background: linear-gradient(#ef5350, #b71c1c);
         }
+        .firstDiv {
+            margin-top: 0;
+            width: 100vw;
+            height: 10px;
+        }
         .title {
             color: white;
             text-align: center;
@@ -44,6 +49,7 @@
     <title>Download site</title>
 </head>
 <body>
+    <div class="firstDiv"></div>
     <p class="title">Error 404</p>
     <span class="errorForm">
             <p>Page not found</p>
