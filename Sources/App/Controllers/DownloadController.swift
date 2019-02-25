@@ -23,6 +23,9 @@ final class DownlaodSiteController {
             print("File exists")
             let file = File(data: data, filename: fileData!.filename)
             return req.response(file: file)
+        }.catch { error in
+            print(error)
+            throw Abort(.badRequest, reason: "File does not exist")
         }
     }
 
