@@ -3,6 +3,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        function download()
+        {
+            const fileID = document.getElementById("fileID").value;
+            window.open("dl.gudmunduro.com/" + fileID);
+        }
+    </script>
     <style>
         html {
             padding: 0;
@@ -68,8 +75,8 @@
 <body>
     <p class="title">Download site</p>
     <span class="downloadForm">
-            <input type="text" placeholder="File ID" />
-            <a>Download</a>
+            <input type="text" id="fileID" placeholder="File ID" />
+            <a onclick="download">Download</a>
     </span>
 
 </body>
