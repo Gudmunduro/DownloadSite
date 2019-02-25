@@ -17,8 +17,10 @@ final class DownlaodSiteController {
                 throw Abort(.badRequest, reason: "File does not exist")
             }
             guard let data = try? Data(contentsOf: fileStoragePath(filename: fileData!.fileTag)) else {
+                print("Failed to load data")
                 throw Abort(.internalServerError, reason: "Failed to load data")
             }
+            print("File exists")
             let file = File(data: data, filename: fileData!.filename)
             return req.response(file: file)
         }
