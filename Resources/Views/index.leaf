@@ -76,7 +76,7 @@
     <p class="title">Download site</p>
     <span class="downloadForm">
             <input type="text" id="fileID" placeholder="File ID" />
-            <a onclick="download">Download</a>
+            <a onclick="download()">Download</a>
     </span>
 
 </body>
