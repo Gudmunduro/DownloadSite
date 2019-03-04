@@ -1,0 +1,174 @@
+html {
+    padding: 0;
+    margin: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#2196F3, #0D47A1);
+}
+.firstDiv {
+    margin-top: 0;
+    width: 100vw;
+    height: 10px;
+}
+.title {
+    display: block;
+    color: white;
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: 'Verdana';
+    font-size: 1.5em;
+    width: 90%;
+}
+.title.loginTitle {
+    text-align: center;
+}
+
+
+.baseTextInput {
+    display: block;
+    height: 30px;
+    width: 150px;
+    font-size: 0.9em;
+    border: 2px solid #E0E0E0;
+    transition: border-color 0.2s ease-out;
+}
+.baseTextInput:focus {
+    border-color: #2196F3;
+}
+.baseButton {
+    display: block;
+    margin: 22px 0;
+    color: white;
+    background-color: #2196F3;
+    border-radius: 5px;
+    padding: 6px 5px;
+    height: 18px;
+    width: 30px;
+    transition: background-color 0.2s ease-out;
+}
+.baseButton:hover {
+    cursor: default;
+    background-color: #1976D2;
+}
+.baseButton:active {
+    background-color: #0D47A1;
+}
+
+.loginForm {
+    display: block;
+    width: 280px;
+    height: 200px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.152);
+    padding-top: 1px;
+    display: none;
+}
+.loginForm input {
+    margin: 22px auto;
+}
+.loginForm .loginButton {
+    margin: 22px auto;
+}
+
+.managerForm {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
+    margin: 28px 0;
+    background-color: white;
+    box-shadow: inset 0 1px 2px #b3b3b3;
+}
+
+.managerForm .fileList {
+    padding: 0;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    list-style: none;
+    border-collapse: collapse;
+}
+
+.fileListElement {
+    display: flex;
+    flex-flow: row wrap;
+    height: 60px;
+    width: 100%;
+    overflow: hidden;
+    border: none;
+    transition: background-color 0.5s ease-out;
+}
+
+.fileListElement:last-child {
+    border-top: none;
+    border-bottom: 1px solid #BDBDBD;
+}
+.fileListElement:first-child {
+    border-top: 1px solid #BDBDBD;
+}
+.fileListElement:nth-child(2n) {
+    border-top: 1px solid #BDBDBD;
+    border-bottom: 1px solid #BDBDBD;
+}
+.fileListElement .info{
+    display: flex;
+    width: calc(100% - 370px);
+    height: 100%;
+    padding: 0;
+}
+.fileListElement .actions{
+    display: flex;
+    width: 370px;
+    height: 100%;
+}
+.fileListElement .info .nameAndSize {
+    display: block;
+    width: calc(100% - 370px);
+    height: 100%;
+}
+.fileListElement h1{
+    display: block;
+    margin: 0;
+    margin-top: 8px;
+    margin-left: 6px;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 1.3em;
+    color: black;
+}
+.fileListElement p{
+    margin: 0;
+    padding: 0;
+    margin-left: 6px;
+    font-family: sans-serif;
+    color: #BDBDBD;
+}
+.fileListElement input {
+    margin-top: 13px;
+    width: 200px;
+}
+.fileListElement .activeButton {
+    width: 66px;
+    margin: 13px 8px;
+}
+.fileListElement .deleteButton {
+    width: 53px;
+    margin: 13px 0;
+    background-color: #f44336;
+}
+.fileListElement .deleteButton:hover {
+    background-color: #d32f2f;
+}
+.fileListElement .deleteButton:active {
+    background-color: #b71c1c;
+}

@@ -8,6 +8,11 @@ final class DownlaodSiteController {
         return try req.view().render("index")
     }
 
+    func uploadPage(_ req: Request) throws -> Future<View>
+    {
+        return try req.view().render("upload")
+    }
+
     func download(_ req: Request) throws -> Future<Response>
     {
         let fileTag = try req.parameters.next(String.self)
