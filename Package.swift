@@ -13,11 +13,14 @@ let package = Package(
         // 🍃 An expressive, performant, and extensible templating language built for Swift.
         .package(url: "https://github.com/vapor/leaf.git", from: "3.0.0"),
 
+        // 👤 Authentication and Authorization layer for Fluent.
+        .package(url: "https://github.com/vapor/auth.git", from: "2.0.0"),
+
         // Error middleware using leaf
         .package(url: "https://github.com/brokenhandsio/leaf-error-middleware.git", from: "1.0.0")
     ],
     targets: [
-        .target(name: "App", dependencies: ["FluentMySQL", "Leaf", "Vapor", "LeafErrorMiddleware"]),
+        .target(name: "App", dependencies: ["FluentMySQL", "Leaf", "Vapor", "LeafErrorMiddleware", "Authentication"]),
         .target(name: "Run", dependencies: ["App"]),
         .testTarget(name: "AppTests", dependencies: ["App"])
     ]
