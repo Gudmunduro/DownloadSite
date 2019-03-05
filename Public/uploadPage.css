@@ -49,6 +49,7 @@ body {
     padding: 6px 5px;
     height: 18px;
     width: 30px;
+    text-align: center;
     transition: background-color 0.2s ease-out;
 }
 .baseButton:hover {
@@ -57,6 +58,16 @@ body {
 }
 .baseButton:active {
     background-color: #0D47A1;
+}
+
+.baseButtonDisabled {
+    background-color: #64B5F6;
+}
+.baseButtonDisabled:hover {
+    background-color: #64B5F6;
+}
+.baseButtonDisabled:active {
+    background-color: #64B5F6;
 }
 
 .loginForm {
@@ -68,18 +79,18 @@ body {
     border-radius: 3px;
     box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.152);
     padding-top: 1px;
-    display: none;
 }
 .loginForm input {
     margin: 22px auto;
 }
 .loginForm .loginButton {
     margin: 22px auto;
+    width: 50px;
 }
 
 .managerForm {
-    display: flex;
-    flex-flow: row wrap;
+    display: block;
+    flex-flow: nowrap;
     justify-content: center;
     width: 100%;
     height: 60%;
@@ -89,6 +100,7 @@ body {
 }
 
 .managerForm .fileList {
+    display: block;
     padding: 0;
     width: 90%;
     margin: 0 auto;
@@ -157,7 +169,7 @@ body {
     margin-top: 13px;
     width: 200px;
 }
-.fileListElement .activeButton {
+.fileListElement .activateButton {
     width: 66px;
     margin: 13px 8px;
 }
@@ -171,4 +183,21 @@ body {
 }
 .fileListElement .deleteButton:active {
     background-color: #b71c1c;
+}
+
+.topButtons {
+    display: block;
+    width: 90%;
+    height: 40px;
+    margin: 0 auto;
+}
+.topButtons .topButton {
+    float: right;
+    margin: 15px 11px;
+    width: 39px;
+}
+
+
+.disabled {
+    display: none;
 }
