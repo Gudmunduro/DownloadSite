@@ -30,6 +30,13 @@ final class ApiController {
         }
     }
 
+    func uploadFile(_ req: Request) throws -> Future<HTTPStatus>
+    {
+        return try req.content.decode(UploadFileRequest.self).map { uploadFileRequest in
+            return .ok
+        }
+    }
+
     func getFiles(_ req: Request) throws -> Future<[DownloadFile]> {
         let user = try req.requireAuthenticated(User.self)
 
