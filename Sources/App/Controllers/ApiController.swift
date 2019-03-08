@@ -33,6 +33,23 @@ final class ApiController {
     func getFiles(_ req: Request) throws -> Future<[DownloadFile]> {
         let user = try req.requireAuthenticated(User.self)
 
-        return DownloadFile.query(on: req).all()
+        return try DownloadFile.query(on: req).all()
+    }
+
+    func uploadFile(_ req: Request) throws -> Future<HTTPStatus>
+    {
+        let user = try req.requireAuthenticated(User.self)
+
+        return try req.content.decode(UploadFileRequest.self).flatMap { uploadFileRq -> Future<DownloadFile> in
+            let newFileDB = DownloadFile(fileTag: uploadFileRq.fileTag, filename: uploadFileRq.file.filename).save(on: req)
+            
+            let path = fileStoragePath(filename: uploadFileRq.file.filename)
+
+            try uploadFileRq.file.data.write(to: path)
+
+            return newFileDB
+        }.map { newFileDB in
+            return HTTPStatus.ok
+        }
     }
 }

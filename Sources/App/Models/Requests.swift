@@ -6,7 +6,6 @@ struct UpdateFileTagRequest: Content {
 }
 
 struct UploadFileRequest: Content {
-    var id: Int
     var file: File
     var fileTag: String
 }

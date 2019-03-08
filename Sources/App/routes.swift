@@ -12,6 +12,7 @@ public func routes(_ router: Router) throws {
 
     let apiController = ApiController()
     basic.post("api", "login", use: apiController.login)
-    bearer.get("api", "update", use: apiController.updateFile)
+    bearer.post("api", "update", use: apiController.updateFile)
+    bearer.post("api", "upload", use: apiController.uploadFile)
     bearer.get("api", "files", use: apiController.getFiles)
 }
