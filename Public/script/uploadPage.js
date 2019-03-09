@@ -1,4 +1,6 @@
 
+let token = "";
+let loggedIn = false;
 
 var Manager = {
     setUIState (state) {
@@ -48,6 +50,16 @@ var Manager = {
                 tag: "file2"
             }
         ],
+        async setup()
+        {
+            try {
+                this.files = (await Axios.get("/api/files")).data;
+            } catch (error) {
+                console.log(error);
+                alert("Failed to load files");
+            }
+            renderFileList();
+        },
         renderFileList() {
             let fileList = document.getElementById("fileList");
             fileList.innerHTML = "";
@@ -64,7 +76,7 @@ var Manager = {
                 infoE.className = "info";
                 nameAndSizeE.className = "nameAndSize";
                 filenameE.innerText = file.name;
-                sizeE.innerText = file.size;
+                sizeE.innerText = "?mb";// file.size;
 
                 infoE.appendChild(nameAndSizeE);
                 nameAndSizeE.appendChild(filenameE);
@@ -114,7 +126,20 @@ var Manager = {
             }
         },
         login() {
-           this.loginButtonEnabled = false;
+            const username = document.getElementById("usernameField").value;
+            const password = document.getElementById("passwordField").value;
+            this.loginButtonEnabled = false;
+            let response = await Axios.post('/api/login', {
+                auth: {
+                    username,
+                    password
+                }
+            });
+
+            token = response.data.token;
+            loggedIn = true;
+            Manager.setUIState(1);
+            Manager.fileList.setup();
         }
     }
 };

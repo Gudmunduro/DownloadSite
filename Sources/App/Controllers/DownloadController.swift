@@ -8,9 +8,9 @@ final class DownlaodSiteController {
         return try req.view().render("index")
     }
 
-    func uploadPage(_ req: Request) throws -> Future<View>
+    func manager(_ req: Request) throws -> Future<View>
     {
-        return try req.view().render("upload")
+        return try req.view().render("manager")
     }
 
     func download(_ req: Request) throws -> Future<Response>
