@@ -129,12 +129,17 @@ var Manager = {
             const username = document.getElementById("usernameField").value;
             const password = document.getElementById("passwordField").value;
             this.loginButtonEnabled = false;
-            let response = await axios.post('/api/login', {
-                auth: {
-                    username,
-                    password
-                }
-            });
+            try {
+                let response = await axios.post('/api/login', {
+                    auth: {
+                        username,
+                        password
+                    }
+                });
+            } catch {
+                alert("Login failed")
+                this.loginButtonEnabled = true;
+            }
 
             token = response.data.token;
             loggedIn = true;

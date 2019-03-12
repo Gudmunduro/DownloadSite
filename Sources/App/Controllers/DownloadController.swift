@@ -1,5 +1,6 @@
 import Vapor
 import FluentMySQL
+import Crypto
 
 final class DownlaodSiteController {
 
@@ -26,6 +27,12 @@ final class DownlaodSiteController {
             let file = File(data: data, filename: fileData!.filename)
             return req.response(file: file)
         }
+    }
+
+    func hashString(_ req: Request) throws -> String
+    {
+        let pass = try req.parameters.next(String.self)
+        return try BCrypt.hash(pass, cost: 5)
     }
 
 }
