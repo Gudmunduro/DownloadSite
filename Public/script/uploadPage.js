@@ -53,7 +53,7 @@ var Manager = {
         async setup()
         {
             try {
-                this.files = (await Axios.get("/api/files")).data;
+                this.files = (await axios.get("/api/files")).data;
             } catch (error) {
                 console.log(error);
                 alert("Failed to load files");
@@ -129,7 +129,7 @@ var Manager = {
             const username = document.getElementById("usernameField").value;
             const password = document.getElementById("passwordField").value;
             this.loginButtonEnabled = false;
-            let response = await Axios.post('/api/login', {
+            let response = await axios.post('/api/login', {
                 auth: {
                     username,
                     password
