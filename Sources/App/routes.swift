@@ -12,7 +12,7 @@ public func routes(_ router: Router) throws {
     router.get(String.parameter, use: downlaodSiteController.download)
     router.get("manager", use: downlaodSiteController.manager)
 
-    router.get("api", "hash", String.parameter, use: downlaodSiteController.hashString)
+    // router.get("api", "hash", String.parameter, use: downlaodSiteController.hashString)
 
     let apiController = ApiController()
     basic.post("api", "login", use: apiController.login)
