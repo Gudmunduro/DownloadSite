@@ -125,7 +125,7 @@ var Manager = {
                 }
             }
         },
-        login() {
+        async login() {
             const username = document.getElementById("usernameField").value;
             const password = document.getElementById("passwordField").value;
             this.loginButtonEnabled = false;
