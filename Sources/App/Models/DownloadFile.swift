@@ -8,8 +8,7 @@ final class DownloadFile: MySQLModel {
 
     var filename: String
 
-    init(id: Int? = nil, fileTag: String, filename: String)
-    {
+    init(id: Int? = nil, fileTag: String, filename: String) {
         self.id = id
         self.fileTag = fileTag
         self.filename = filename

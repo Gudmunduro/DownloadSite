@@ -35,22 +35,9 @@ var Manager = {
         }
     },
     fileList: {
-        files: [
-            {
-                id: 0,
-                filename: "File1.exe",
-                size: "50mb",
-                fileTag: "file1"
-            },
-            {
-                id: 1,
-                filename: "File2.exe",
-                size: "51mb",
-                fileTag: "file2"
-            }
-        ],
-        async setup()
-        {
+        files: [],
+
+        async setup() {
             try {
                 this.files = (await axios.get("/api/files")).data;
             } catch (error) {
@@ -59,6 +46,7 @@ var Manager = {
             }
             this.renderFileList();
         },
+
         renderFileList() {
             let fileList = document.getElementById("fileList");
             fileList.innerHTML = "";
@@ -103,11 +91,35 @@ var Manager = {
 
                 fileList.appendChild(mainE);
             }
+        },
+
+        onFileDrop(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            let fileTag = prompt("Enter file tag");
+
+            let formData = new FormData();
+            formData.append("file", e.target.files[0]);
+            formData.append("fileTag", fileTag)
+
+            let response;
+            try {
+                response = await axios.post("/api/upload", formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+            } catch (error) {
+                alert("Failed to upload file");
+                console.log(error);
+            }
+
+            this.setup();
         }
     },
     loginForm: {
-        set loginButtonEnabled(enabled)
-        {
+        set loginButtonEnabled(enabled) {
             switch (enabled) {
                 case true:
                 {
@@ -125,10 +137,13 @@ var Manager = {
                 }
             }
         },
+
         async login() {
             const username = document.getElementById("usernameField").value;
             const password = document.getElementById("passwordField").value;
+
             this.loginButtonEnabled = false;
+
             let response;
             try {
                 response = await axios.post('/api/login', {}, {

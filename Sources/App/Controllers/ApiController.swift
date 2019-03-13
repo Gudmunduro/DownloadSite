@@ -36,8 +36,7 @@ final class ApiController {
         return try DownloadFile.query(on: req).all()
     }
 
-    func uploadFile(_ req: Request) throws -> Future<HTTPStatus>
-    {
+    func uploadFile(_ req: Request) throws -> Future<HTTPStatus> {
         let user = try req.requireAuthenticated(User.self)
 
         return try req.content.decode(UploadFileRequest.self).flatMap { uploadFileRq -> Future<DownloadFile> in
