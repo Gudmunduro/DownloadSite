@@ -51,6 +51,10 @@ var Manager = {
             let fileList = document.getElementById("fileList");
             fileList.innerHTML = "";
 
+            fileList.ondrop = this.onFileDrop;
+            fileList.ondragover = (e) => { e.preventDefault(); e.stopPropagation(); }
+            fileList.ondragleave = (e) => { e.preventDefault(); e.stopPropagation(); }
+
             for (let file of this.files) {
                 let mainE = document.createElement("span");
                 mainE.className = "fileListElement";
@@ -93,7 +97,7 @@ var Manager = {
             }
         },
 
-        onFileDrop(e) {
+        async onFileDrop(e) {
             e.preventDefault();
             e.stopPropagation();
 
