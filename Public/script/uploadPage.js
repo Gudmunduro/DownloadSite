@@ -38,15 +38,15 @@ var Manager = {
         files: [
             {
                 id: 0,
-                name: "File1.exe",
+                filename: "File1.exe",
                 size: "50mb",
-                tag: "file1"
+                fileTag: "file1"
             },
             {
                 id: 1,
-                name: "File2.exe",
+                filename: "File2.exe",
                 size: "51mb",
-                tag: "file2"
+                fileTag: "file2"
             }
         ],
         async setup()
@@ -74,7 +74,7 @@ var Manager = {
 
                 infoE.className = "info";
                 nameAndSizeE.className = "nameAndSize";
-                filenameE.innerText = file.name;
+                filenameE.innerText = file.filename;
                 sizeE.innerText = "?mb";// file.size;
 
                 infoE.appendChild(nameAndSizeE);
@@ -90,6 +90,7 @@ var Manager = {
                 actionsE.className = "actions";
                 tagInputE.className = "baseTextInput";
                 tagInputE.type = "text";
+                tagInputE.value = file.fileTag;
                 activateButtonE.className = "baseButton activateButton";
                 activateButtonE.innerText = "Activate";
                 deleteButtonE.className = "baseButton deleteButton";
