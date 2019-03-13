@@ -141,7 +141,7 @@ var Manager = {
                 this.loginButtonEnabled = true;
             }
 
-            axios.defaults.headers.common['Authorization'] = response.data.token;
+            axios.defaults.headers.common['Authorization'] = "Bearer " + response.data.token;
             loggedIn = true;
             Manager.setUIState(1);
             Manager.fileList.setup();
