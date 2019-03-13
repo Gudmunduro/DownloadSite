@@ -1,7 +1,7 @@
 
 let loggedIn = false;
 
-var Manager = {
+let Manager = {
     setUIState (state) {
         switch (state) {
             case 0:
@@ -97,14 +97,36 @@ var Manager = {
             }
         },
 
+        onFileUploadButtonPressed()
+        {
+            document.getElementById("fileInput").click();
+        },
+
         async onFileDrop(e) {
             e.preventDefault();
             e.stopPropagation();
 
-            let fileTag = prompt("Enter file tag");
+            const file = e.target.files[0];
+            const fileTag = prompt("Enter file tag");
 
+            await this.uploadFile(file, fileTag);
+
+            this.setup();
+        },
+
+        async onFileDialogChanged(e)
+        {
+            const file = e.target.files[0];
+            const fileTag = prompt("Enter file tag");
+            
+            await this.uploadFile(file, fileTag);
+
+            this.setup();
+        },
+
+        async uploadFile(file, fileTag) {
             let formData = new FormData();
-            formData.append("file", e.target.files[0]);
+            formData.append("file", file);
             formData.append("fileTag", fileTag)
 
             let response;
@@ -118,8 +140,6 @@ var Manager = {
                 alert("Failed to upload file");
                 console.log(error);
             }
-
-            this.setup();
         }
     },
     loginForm: {

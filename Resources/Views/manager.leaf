@@ -18,9 +18,11 @@
     </span>
     <span class="managerForm disabled" id="managerForm">
         <span class="topButtons">
-            <a class="baseButton topButton">Save</a>
+            <a class="baseButton topButton left" onclick="Manager.fileList.onFileUploadButtonPressed()" >Upload</a>
+            <a class="baseButton topButton right">Save</a>
         </span>
         <span class="fileList" id="fileList"></span>
     </span>
+    <input type="file" id="fileInput" class="hidden" onchange="Manager.fileList.onFileDialogChanged(event)" />
 </body>
 </html>

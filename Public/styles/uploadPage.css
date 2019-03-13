@@ -9,6 +9,11 @@ body {
     padding: 0;
     background: linear-gradient(#2196F3, #0D47A1);
 }
+
+.hidden {
+    display: none;
+}
+
 .firstDiv {
     margin-top: 0;
     width: 100vw;
@@ -192,9 +197,14 @@ body {
     margin: 0 auto;
 }
 .topButtons .topButton {
-    float: right;
     margin: 15px 11px;
     width: 39px;
+}
+.topButtons .topButton .right {
+    float: right;
+}
+.topButtons .topButton .left {
+    float: left;
 }
 
 
