@@ -1,5 +1,4 @@
 
-let token = "";
 let loggedIn = false;
 
 var Manager = {
@@ -58,7 +57,7 @@ var Manager = {
                 console.log(error);
                 alert("Failed to load files");
             }
-            renderFileList();
+            this.renderFileList();
         },
         renderFileList() {
             let fileList = document.getElementById("fileList");
@@ -142,7 +141,7 @@ var Manager = {
                 this.loginButtonEnabled = true;
             }
 
-            token = response.data.token;
+            axios.defaults.headers.common['Authorization'] = response.data.token;
             loggedIn = true;
             Manager.setUIState(1);
             Manager.fileList.setup();
