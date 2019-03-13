@@ -130,7 +130,7 @@ var Manager = {
             const password = document.getElementById("passwordField").value;
             this.loginButtonEnabled = false;
             try {
-                let response = await axios.post('/api/login', {
+                let response = await axios.post('/api/login', {}, {
                     auth: {
                         username,
                         password
