@@ -42,7 +42,7 @@ final class ApiController {
         return try req.content.decode(UploadFileRequest.self).flatMap { uploadFileRq -> Future<DownloadFile> in
             let newFileDB = DownloadFile(fileTag: uploadFileRq.fileTag, filename: uploadFileRq.file.filename).save(on: req)
             
-            let path = fileStoragePath(filename: uploadFileRq.file.filename)
+            let path = fileStoragePath(filename: uploadFileRq.fileTag)
 
             try uploadFileRq.file.data.write(to: path)
 
