@@ -149,18 +149,21 @@ let Manager = {
                 console.log('Token not found in localStorage');
                 console.log('Logout failed, ')
                 Manager.setUIState(0);
+                localStorage.removeItem('token');
                 return;
             }
 
             try {
-                await axios.post("/api/logout");
+                await axios.post('/api/logout');
             } catch (error) {
-                console.log("Logout failed");
+                console.log('Logout failed');
                 console.log(error);
                 Manager.setUIState(0);
+                localStorage.removeItem('token');
             }
 
             Manager.setUIState(0);
+            localStorage.removeItem('token');
         }
     },
     loginForm: {
