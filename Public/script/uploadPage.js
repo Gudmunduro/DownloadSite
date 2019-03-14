@@ -13,6 +13,7 @@ let Manager = {
                 // Login form
                 let loginForm = document.getElementById('loginForm');
                 loginForm.className = 'loginForm';
+                loginForm.loginButtonEnabled = true;
                 // Manager form
                 let managerForm = document.getElementById('managerForm');
                 managerForm.className = 'managerForm disabled';
