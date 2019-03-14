@@ -13,6 +13,10 @@ final class User: MySQLModel {
     
     /// BCrypt hash of the user's password.
     var passwordHash: String
+
+    var tokens: Children<User, UserToken> {
+        return children(\.userID)
+    }
     
     /// Creates a new `User`.
     init(id: Int? = nil, username: String, passwordHash: String) {
