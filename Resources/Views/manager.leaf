@@ -18,8 +18,14 @@
     </span>
     <span class="managerForm disabled" id="managerForm">
         <span class="topButtons">
-            <a class="baseButton topButton left" onclick="Manager.fileList.onFileUploadButtonPressed()" >Upload</a>
-            <a class="baseButton topButton right">Save</a>
+            <span class="leftBox">
+                <a class="baseButton topButton left" id="uploadButton" onclick="Manager.fileList.onFileUploadButtonPressed()" >Upload</a>
+            </span>
+            <span class="centerBox"></span>
+            <span class="rightBox">
+                <a class="baseButton topButton right" id="saveButton">Save</a>
+                <a class="baseButton topButton right" id="logoutButton" onclick"Manager.fileList.logout()">Logout</a>
+            </span>
         </span>
         <span class="fileList" id="fileList"></span>
     </span>

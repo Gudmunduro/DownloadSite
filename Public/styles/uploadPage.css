@@ -196,15 +196,31 @@ body {
     height: 40px;
     margin: 0 auto;
 }
+.topButton .leftBox {
+    display: block;
+    width: 20%;
+}
+.topButton .centerBox {
+    display: block;
+    width: 60%;
+}
+.topButtons .rightBox {
+    display: block;
+    width: 20%;
+}
 .topButtons .topButton {
     margin: 15px 11px;
     width: 39px;
 }
-.topButtons .topButton .right {
+.topButtons .topButton.right {
     float: right;
 }
-.topButtons .topButton .left {
+.topButtons .topButton.left {
     float: left;
+}
+
+#logoutButton, #uploadButton {
+    width: 60px;
 }
 
 
