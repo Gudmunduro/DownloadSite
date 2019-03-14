@@ -196,11 +196,11 @@ body {
     height: 40px;
     margin: 0 auto;
 }
-.topButton .leftBox {
+.topButtons .leftBox {
     display: block;
     width: 20%;
 }
-.topButton .centerBox {
+.topButtons .centerBox {
     display: block;
     width: 60%;
 }
