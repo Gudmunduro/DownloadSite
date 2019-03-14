@@ -17,7 +17,7 @@ final class ApiController {
     func logout(_ req: Request) throws -> Future<[UserToken]> {
         let user = try req.requireAuthenticated(User.self)
 
-        return try UserToken.query(on: req).filter(\.userID == user.id!).all()
+        return try UserToken.query(on: req).filter(\.userID == user.id!).delete()
     }
 
     func updateFile(_ req: Request) throws -> Future<HTTPStatus> {

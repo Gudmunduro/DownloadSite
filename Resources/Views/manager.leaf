@@ -24,7 +24,7 @@
             <span class="centerBox"></span>
             <span class="rightBox">
                 <a class="baseButton topButton right" id="saveButton">Save</a>
-                <a class="baseButton topButton right" id="logoutButton" onclick"Manager.fileList.logout()">Logout</a>
+                <a class="baseButton topButton right" id="logoutButton" onclick="Manager.fileList.logout()" >Logout</a>
             </span>
         </span>
         <span class="fileList" id="fileList"></span>
