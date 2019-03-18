@@ -79,7 +79,6 @@
 </head>
 <body>
     <div class="firstDiv"></div>
-    <p class="title">Download site</p>
     <span class="downloadForm">
             <input type="text" id="fileID" placeholder="File ID" />
             <a onclick="dl()">Download</a>
